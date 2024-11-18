@@ -2,14 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import image1 from "../assets/A01.avif";
+import Swapy from "../components/swapy.vue";
 ---
 
 <Layout title="AR-Dev">
-	<main>
-		<div class="bg-main"></div>
+  <main>
+    <div class="bg-main"></div>
 
-		<header class="hed cloudos-toolbar homepage overlay">toolbar</header>
-		<!-- <svg
+    <header class="hed cloudos-toolbar homepage overlay">toolbar</header>
+    <!-- <svg
 			class="astro-a"
 			width="495"
 			height="623"
@@ -37,138 +38,146 @@ import image1 from "../assets/A01.avif";
 				</linearGradient>
 			</defs>
 		</svg> -->
-		<!-- 
+    <!-- 
 		<img class="astro-a" src={image1.src} alt="Descripción de la imagen" loading="lazy" /> -->
 
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+    <h1>Welcome to <span class="text-gradient">AR-Dev</span></h1>
+    <div class="🍉">
+      <Swapy client:load />
+    </div>
 
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-		</ul>
-	</main>
+    <!-- <ul role="list" class="link-card-grid">
+      <Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+      />
+      <Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+      />
+      <Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+      />
+    </ul> -->
+  </main>
 </Layout>
 
 <style>
-	.cloudos-toolbar.overlay {
-		z-index: 3;
-	}
-	main {
-		
-	}
-	.hed {
-		backdrop-filter: blur(14px);
-		background-color: rgba(56, 56, 61, 0.6);
-		z-index: 3;
-		position: sticky;
-		top: 0;
-	}
-	.bg-main {
-		background-image: url("/src/assets/A08.jpg");
-		-webkit-animation-fill-mode: forwards;
-		position: fixed;
-		inset-inline-start: 0;
-		inset-block-start: 0;
-		inline-size: 100%;
-		block-size: 100%;
-		background-position: 50%;
-		background-size: cover;
-		z-index: -1;
-	}
+  .cloudos-toolbar.overlay {
+    z-index: 3;
+  }
+  main {
+  }
+  .🍉{
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+  } 
+  .hed {
+    backdrop-filter: blur(14px);
+    background-color: rgba(56, 56, 61, 0.6);
+    z-index: 3;
+    position: sticky;
+    top: 0;
+  }
+  .bg-main {
+    background-image: url("/src/assets/A08.jpg");
+    -webkit-animation-fill-mode: forwards;
+    position: fixed;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background-position: 50%;
+    background-size: cover;
+    z-index: -1;
+  }
 
-	.bg-main::after {
-		content: "";
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(64deg, #056ec4, #073d85 44.5%, #0603c9);
-		opacity: 0.95; /* Ajusta la opacidad para ver el fondo detrás */
-		z-index: 1;
-		mix-blend-mode: hard-light;
-	}
+  .bg-main::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(64deg, #056ec4, #073d85 44.5%, #0603c9);
+    opacity: 0.95; /* Ajusta la opacidad para ver el fondo detrás */
+    z-index: 1;
+    mix-blend-mode: hard-light;
+  }
 
-	.bg-m {
-		position: relative;
-		height: 100vw;
-		width: 100vh;
-		overflow: hidden;
-	}
+  .bg-m {
+    position: relative;
+    height: 100vw;
+    width: 100vh;
+    overflow: hidden;
+  }
 
-	.bg-m::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-image: url("/src/assets/A05.webp");
-		background-size: cover;
-		background-position: center;
-		transform: rotate(90deg);
-		width: 150%; /* Aumenta el tamaño si se cortan los bordes */
-		height: 150%;
-		z-index: -1;
-	}
-	.astro-a {
-		position: absolute;
-		width: 100vw;
-		height: 100vh;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(var(--accent-dark), 66%),
-			rgba(var(--accent-dark), 33%)
-		);
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		/* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
-		gap: 12rem;
-		padding: 0;
-	}
+  .bg-m::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/src/assets/A05.webp");
+    background-size: cover;
+    background-position: center;
+    transform: rotate(90deg);
+    width: 150%; /* Aumenta el tamaño si se cortan los bordes */
+    height: 150%;
+    z-index: -1;
+  }
+  .astro-a {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
+    gap: 12rem;
+    padding: 0;
+  }
 </style>
